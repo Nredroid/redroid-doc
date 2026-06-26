@@ -172,7 +172,7 @@ docker run -itd --rm --privileged \
 - 如何收集调试数据
 > `curl -fsSL https://raw.githubusercontent.com/remote-android/redroid-doc/master/debug.sh | sudo bash -s -- [CONTAINER]`
 >
-> 删掉 *容器* 如果它不再存在
+> 如果容器已不存在，可省略*CONTAINER*
 
 - 容器立即消失
 > 确保已经安装了需要的内核模块; 运行 `dmesg -T` 获得详细日志
