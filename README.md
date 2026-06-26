@@ -15,7 +15,7 @@ English | [简体中文](README.zh-cn.md)
 ## Overview
 *redroid* (*Re*mote an*Droid*) is a GPU accelerated AIC (Android In Cloud) solution. You can boot many
 instances in Linux host (`Docker`, `podman`, `k8s` etc.). *redroid* supports both `arm64` and `amd64` architectures. 
-*redroid* is suitable for Cloud Gaming, Virtualise Phones, Automation Test and more.
+*redroid* is suitable for Cloud Gaming, Virtualize Phones, Automation Test and more.
 
 ![Screenshot of redroid 11](./assets/redroid11.png)
 
@@ -91,24 +91,24 @@ docker run -itd --rm --privileged \
     androidboot.redroid_dpi=480 \
 ```
 
-| Param | Description | Default |
-| --- | --- | --- |
-| `androidboot.redroid_width` | display width | 720 |
-| `androidboot.redroid_height` | display height | 1280 |
-| `androidboot.redroid_fps` | display FPS | 30(GPU enabled)<br> 15 (GPU not enabled)|
-| `androidboot.redroid_dpi` | display DPI | 320 |
-| `androidboot.use_memfd` | use `memfd` to replace deprecated `ashmem`<br>plan to enable by default | false |
-| `androidboot.use_redroid_overlayfs` | use `overlayfs` to share `data` partition<br>`/data-base`: shared `data` partition<br>`/data-diff`: private data | 0 |
-| `androidboot.redroid_net_ndns` | number of DNS server, `8.8.8.8` will be used if no DNS server specified | 0 |
-| `androidboot.redroid_net_dns<1..N>` | DNS | |
-| `androidboot.redroid_net_proxy_type` | Proxy type; choose from: `static`, `pac`, `none`, `unassigned` | |
-| `androidboot.redroid_net_proxy_host` | | |
-| `androidboot.redroid_net_proxy_port` | | 3128 |
-| `androidboot.redroid_net_proxy_exclude_list` | comma seperated list | |
-| `androidboot.redroid_net_proxy_pac` | | |
-| `androidboot.redroid_gpu_mode` | choose from: `auto`, `host`, `guest`;<br>`guest`: use software rendering;<br>`host`: use GPU accelerated rendering;<br>`auto`: auto detect | `guest` |
-| `androidboot.redroid_gpu_node` | | auto-detect |
-| `ro.xxx`| **DEBUG** purpose, allow override `ro.xxx` prop; For example, set `ro.secure=0`, then root adb shell provided by default | |
+| Param                                        | Description                                                                                                                                | Default                                  |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| `androidboot.redroid_width`                  | display width                                                                                                                              | 720                                      |
+| `androidboot.redroid_height`                 | display height                                                                                                                             | 1280                                     |
+| `androidboot.redroid_fps`                    | display FPS                                                                                                                                | 30(GPU enabled)<br> 15 (GPU not enabled) |
+| `androidboot.redroid_dpi`                    | display DPI                                                                                                                                | 320                                      |
+| `androidboot.use_memfd`                      | use `memfd` to replace deprecated `ashmem`<br>plan to enable by default                                                                    | false                                    |
+| `androidboot.use_redroid_overlayfs`          | use `overlayfs` to share `data` partition<br>`/data-base`: shared `data` partition<br>`/data-diff`: private data                           | 0                                        |
+| `androidboot.redroid_net_ndns`               | number of DNS server, `8.8.8.8` will be used if no DNS server specified                                                                    | 0                                        |
+| `androidboot.redroid_net_dns<1..N>`          | DNS                                                                                                                                        |                                          |
+| `androidboot.redroid_net_proxy_type`         | Proxy type; choose from: `static`, `pac`, `none`, `unassigned`                                                                             |                                          |
+| `androidboot.redroid_net_proxy_host`         |                                                                                                                                            |                                          |
+| `androidboot.redroid_net_proxy_port`         |                                                                                                                                            | 3128                                     |
+| `androidboot.redroid_net_proxy_exclude_list` | comma seperated list                                                                                                                       |                                          |
+| `androidboot.redroid_net_proxy_pac`          |                                                                                                                                            |                                          |
+| `androidboot.redroid_gpu_mode`               | choose from: `auto`, `host`, `guest`;<br>`guest`: use software rendering;<br>`host`: use GPU accelerated rendering;<br>`auto`: auto detect | `guest`                                  |
+| `androidboot.redroid_gpu_node`               |                                                                                                                                            | auto-detect                              |
+| `ro.xxx`                                     | **DEBUG** purpose, allow override `ro.xxx` prop; For example, set `ro.secure=0`, then root adb shell provided by default                   |                                          |
 
 
 ## Native Bridge Support
@@ -172,7 +172,7 @@ Check [android-builder-docker](./android-builder-docker) for details.
 - How to collect debug blobs
 > `curl -fsSL https://raw.githubusercontent.com/remote-android/redroid-doc/master/debug.sh | sudo bash -s -- [CONTAINER]`
 >
-> omit *CONTAINER* if not exist any more
+> omit *CONTAINER* if not exist anymore
 
 - Container disappeared immediately
 > make sure the required kernel modules are installed; run `dmesg -T` for detailed logs
@@ -180,7 +180,7 @@ Check [android-builder-docker](./android-builder-docker) for details.
 - Container running, but adb cannot connect (device offline etc.)
 > run `docker exec -it <container> sh`, then check `ps -A` and `logcat`
 >
-> try `dmesg -T` if cannot get a container shell
+> try `dmesg -T` if you cannot get a container shell
 
 ## Contact Me
 - ziyang.zhou@outlook.com
