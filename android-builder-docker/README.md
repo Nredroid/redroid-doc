@@ -10,13 +10,13 @@ mkdir ~/redroid && cd ~/redroid
 repo init -u https://android.googlesource.com/platform/manifest --git-lfs --depth=1 -b android17-release
 
 # add local manifests
-git clone https://github.com/remote-android/local_manifests.git ~/redroid/.repo/local_manifests -b 17.0.0
+git clone https://github.com/Nredroid/local_manifests.git ~/redroid/.repo/local_manifests -b 17.0.0
 
 # sync code
 repo sync -c
 
 # apply redroid patches
-git clone https://github.com/remote-android/redroid-patches.git ~/redroid-patches
+git clone https://github.com/Nredroid/redroid-patches.git ~/redroid-patches
 ~/redroid-patches/apply-patch.py ~/redroid
 ```
 ### Fetch code (LEGACY)
