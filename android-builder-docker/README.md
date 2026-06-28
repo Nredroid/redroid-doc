@@ -1,5 +1,5 @@
 # Build redroid with docker
-
+### Fetch Code
 ```bash
 #####################
 # fetch code
@@ -7,28 +7,28 @@
 mkdir ~/redroid && cd ~/redroid
 
 # check supported branch in https://github.com/remote-android/redroid-patches.git
-repo init -u https://android.googlesource.com/platform/manifest --git-lfs --depth=1 -b android-11.0.0_r48
+repo init -u https://android.googlesource.com/platform/manifest --git-lfs --depth=1 -b android17-release
 
 # add local manifests
-git clone https://github.com/remote-android/local_manifests.git ~/redroid/.repo/local_manifests -b 11.0.0
+git clone https://github.com/remote-android/local_manifests.git ~/redroid/.repo/local_manifests -b 17.0.0
 
 # sync code
 repo sync -c
 
 # apply redroid patches
 git clone https://github.com/remote-android/redroid-patches.git ~/redroid-patches
-~/redroid-patches/apply-patch.sh ~/redroid
-
-#####################
-# fetch code (LEGACY)
-#####################
+~/redroid-patches/apply-patch.py ~/redroid
+```
+### Fetch code (LEGACY)
+```bash
 mkdir ~/redroid && cd ~/redroid
 
 repo init -u https://github.com/remote-android/platform_manifests.git -b redroid-11.0.0 --depth=1 --git-lfs
 # check @remote-android/platform_manifests for supported branch / manifest
 
 repo sync -c
-
+```
+```bash
 #####################
 # create builder
 #####################
@@ -45,7 +45,9 @@ docker run -it --rm --hostname redroid-builder --name redroid-builder -v ~/redro
 cd /src
 
 . build/envsetup.sh
-
+# For Android 17 +
+lunch redroid_x86_64-aosp_current-eng
+# For Older Android version
 lunch redroid_x86_64-userdebug
 # redroid_arm64-userdebug
 # redroid_x86_64_only-userdebug (64 bit only, redroid 12+)
