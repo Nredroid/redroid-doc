@@ -44,7 +44,7 @@ git clone https://github.com/remote-android/local_manifests.git ~/redroid/.repo/
 repo sync -c -j$(nproc)
 
 # get latest Dockerfile from Redroid repository
-wget https://raw.githubusercontent.com/remote-android/redroid-doc/master/android-builder-docker/Dockerfile
+wget https://raw.githubusercontent.com/Nredroid/redroid-doc/master/android-builder-docker/Dockerfile
 
 # check if 'Webview.apk' files were properly synced by 'git-lfs'. Each .apk should be at least ~80MB in size.
 find ~/redroid/external/chromium-webview -type f -name "*.apk" -exec du -h {} +
