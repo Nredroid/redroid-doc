@@ -1,9 +1,6 @@
 # Build redroid with docker
-### Fetch Code
+### 1. Fetch Code
 ```bash
-#####################
-# fetch code
-#####################
 mkdir ~/redroid && cd ~/redroid
 
 # check supported branch in https://github.com/remote-android/redroid-patches.git
@@ -19,7 +16,10 @@ repo sync -c
 git clone https://github.com/Nredroid/redroid-patches.git ~/redroid-patches
 ~/redroid-patches/apply-patch.py ~/redroid
 ```
-### Fetch code (LEGACY)
+<details>
+<summary title="Another way to fetch with legacy code.">Alternative solution</summary>
+
+### 1. Fetch code (LEGACY)
 ```bash
 mkdir ~/redroid && cd ~/redroid
 
@@ -28,20 +28,19 @@ repo init -u https://github.com/remote-android/platform_manifests.git -b redroid
 
 repo sync -c
 ```
+</details>
+
+### 2. Create builder
 ```bash
-#####################
-# create builder
-#####################
 docker build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) --build-arg username=$(id -un) -t redroid-builder .
+```
 
-#####################
-# start builder
-#####################
+### 3.Start builder
+```bash
 docker run -it --rm --hostname redroid-builder --name redroid-builder -v ~/redroid:/src redroid-builder
-
-#####################
-# build redroid
-#####################
+```
+### 4. Build Redroid
+```bash
 cd /src
 
 . build/envsetup.sh
@@ -55,7 +54,9 @@ lunch redroid_x86_64-userdebug
 
 # start to build
 m
-
+```
+### 5. Create redroid image
+```bash
 #####################
 # create redroid image in *HOST*
 #####################
