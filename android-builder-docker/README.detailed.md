@@ -102,8 +102,8 @@ find ~/redroid/external/chromium-webview -type f -name "*.apk" -exec du -h {} +
 #### 4) Apply Redroid patches, create builder and start it
 ```
 # apply redroid patches
-git clone https://github.com/remote-android/redroid-patches.git ~/redroid-patches
-~/redroid-patches/apply-patch.sh ~/redroid
+git clone https://github.com/Nredroid/redroid-patches.git ~/redroid-patches
+~/redroid-patches/apply-patch.py ~/redroid
 
 docker buildx create --use
 docker buildx build --build-arg userid=$(id -u) --build-arg groupid=$(id -g) --build-arg username=$(id -un) -t redroid-builder --load .
