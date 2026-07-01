@@ -64,6 +64,9 @@ cd ~/redroid/out/target/product/redroid_x86_64
 
 sudo mount system.img system -o ro
 sudo mount vendor.img vendor -o ro
+#For Android 17+
+sudo tar --xattrs -c vendor ramdisk -C system --exclude="./vendor" . | docker import -c 'ENTRYPOINT ["/ramdisk/init", "androidboot.hardware=redroid"]' - redroid
+#For Older Android
 sudo tar --xattrs -c vendor -C system --exclude="./vendor" . | docker import -c 'ENTRYPOINT ["/init", "androidboot.hardware=redroid"]' - redroid
 sudo umount system vendor
 
